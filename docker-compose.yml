@@ -11,6 +11,8 @@ services:
     labels:
       com.microsoft.acs.dcos.marathon.healthcheck: "true"
     # Map application container port 8080 to docker port 8080
+    environment:
+      - TZ=Asia/Shanghai
     ports:
       - "8080:8080"
     # Do not start application container until postgres container is started
@@ -23,6 +25,9 @@ services:
     # Name image
     image: openempi-db
     # Enable healthchecks on the images so containers can automatically restart if they stop responding
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST_AUTH_METHOD=trust
     labels:
       com.microsoft.acs.dcos.marathon.healthcheck: "true"
     # Map application container port 5432 to docker port 5432

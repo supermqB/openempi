@@ -1,4 +1,4 @@
-FROM tomcat:7
+FROM tomcat:7.0.57-jre8
 
 MAINTAINER Alessandro Fael Garcia <alessfg@hotmail.com>
 
